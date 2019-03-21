@@ -5,6 +5,13 @@ var splice = Array.prototype.splice;
 
 var toString = Object.prototype.toString
 var type = function(obj) {
+  if(window.Set || window.Map) {
+    if(obj instanceof Set) {
+      return 'Set'
+    } else if(obj instanceof Map) {
+      return 'Map'
+    }
+  }
   return toString.call(obj).slice(8, -1);
 }
 
